@@ -5,19 +5,11 @@ import { useState } from 'react'
 import './Formulario.css'
 
 const Formulario = (props) => {
-
-    const times = [
-        'Adc',
-        'Tank',
-        'Mid',
-        'Jungle',
-        'Support'
-    ]
-
+    const times = props.times;
     const [nome,setNome] = useState('')
     const [cargo,setCargo] = useState('')
     const [imagem,setImagem] = useState('')
-    const [time,setTime] = useState(times[0])
+    const [time,setTime] = useState(times[0].nome)
 
     const aoSalvar = (evento) => {
         evento.preventDefault()
