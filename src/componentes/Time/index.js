@@ -1,4 +1,5 @@
 import Colaborador from '../Colaborador'
+import Erro from '../Erro'
 import './Time.css'
 
 const Time = (props) => {
@@ -7,7 +8,7 @@ const Time = (props) => {
     const estiloSecundario = {borderColor: props.corPrimaria}
 
     return (
-        <section className='time' style={estiloPrimario}>
+        (props.colaboradores.length > 0) ? <section className='time' style={estiloPrimario}>
             <h3 style={estiloSecundario}>{props.nome}</h3>
             <div className='colaboradores'>
                 {props.colaboradores.map(colaborador => <Colaborador 
@@ -17,7 +18,7 @@ const Time = (props) => {
                     imagem={colaborador.imagem}
                 />)}
             </div>
-        </section>
+        </section> : <Erro />
     )
 }
 
